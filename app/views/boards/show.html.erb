@@ -1,0 +1,28 @@
+<h1><%= @board.name %></h1>
+
+<h2>Posts</h2>
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= post.title %></li>
+  <% end %>
+</ul>
+
+<h2>Create a new post</h2>
+<%= form_with(url: "/posts", method: "post") do %>
+  <div>
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title">
+  </div>
+  <div>
+    <label for="body">Body</label>
+    <textarea name="body" id="body"></textarea>
+  </div>
+  <div>
+    <label for="expires_on">Expires on</label>
+    <input type="date" name="expires_on" id="expires_on">
+  </div>
+  <input type="hidden" name="board_id" value="<%= @board.id %>">
+  <div>
+    <button type="submit">Add post</button>
+  </div>
+<% end %>

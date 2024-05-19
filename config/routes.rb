@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get("/boards", { :controller => "boards", :action => "index" })
+  post("/boards", { :controller => "boards", :action => "create" })
+  get("/boards/:id", { :controller => "boards", :action => "show" })
+  post("/posts", { :controller => "posts", :action => "create" })
 end
